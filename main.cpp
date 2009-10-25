@@ -35,12 +35,12 @@
 extern QTemporaryFile* _tmpFileForThumbnailView;
 
 int main( int argc, char** argv ) {
-    KAboutData aboutData( "kphotoalbum", 0, ki18n("KPhotoAlbum"), "4.1",
+    KAboutData aboutData( "kphotoalbum", 0, ki18n("KPhotoAlbum"), "SVN",
                           ki18n("KDE Photo Album"), KAboutData::License_GPL,
                           KLocalizedString(), KLocalizedString(), "http://www.kphotoalbum.org");
     aboutData.addAuthor( ki18n("Jesper K. Pedersen"), ki18n("Development"), "blackie@kde.org" );
-    aboutData.addAuthor( ki18n("Hassan Ibraheem"),ki18n("Development"), "hasan.ibraheem@gmail.com>");
-    aboutData.addAuthor( ki18n("Miika Turkia"),ki18n("Development"), "theBro@luukku.com>");
+    aboutData.addAuthor( ki18n("Hassan Ibraheem"),ki18n("Development"), "hasan.ibraheem@gmail.com");
+    aboutData.addAuthor( ki18n("Miika Turkia"),ki18n("Development"), "theBro@luukku.com");
     aboutData.addAuthor( ki18n("Tuomas Suutari"), ki18n("SQL backend and numerous features"), "thsuut@utu.fi" );
     aboutData.addAuthor( ki18n("Jan Kundrat"),ki18n("Development"), "jkt@gentoo.org");
     aboutData.addAuthor( ki18n("Henner Zeller"),ki18n("Development"), "h.zeller@acm.org");
