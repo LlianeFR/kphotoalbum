@@ -1,7 +1,13 @@
 [Desktop Entry]
 Name=KPhotoAlbum
+Name[ca]=KPhotoAlbum
+Name[da]=KPhotoAlbum
+Name[et]=KPhotoAlbum
 Exec=kphotoalbum
 GenericName=Photo Album
+GenericName[ca]=Àlbum de fotos
+GenericName[da]=Fotoalbum
+GenericName[et]=Fotoalbum
 Terminal=false
 Type=Application
 X-KDE-StartupNotify=true
