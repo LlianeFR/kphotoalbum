@@ -2,6 +2,7 @@
 Name=KPhotoAlbum
 Name[ca]=KPhotoAlbum
 Name[da]=KPhotoAlbum
+Name[en_GB]=KPhotoAlbum
 Name[es]=KPhotoAlbum
 Name[et]=KPhotoAlbum
 Name[nb]=KPhotoAlbum
@@ -13,6 +14,7 @@ Exec=kphotoalbum --import %u
 GenericName=Photo Album
 GenericName[ca]=Àlbum de fotos
 GenericName[da]=Fotoalbum
+GenericName[en_GB]=Photo Album
 GenericName[es]=Álbum de fotos
 GenericName[et]=Fotoalbum
 GenericName[nb]=Fotoalbum
