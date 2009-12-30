@@ -1,12 +1,16 @@
-2009-11-25 Hassan Ibraheem <hasan.ibraheem@gmail.com>
-
-	* fixed bug #211907: Fix EXIF support dialog at startup. Thanks to Olivier Berger
-
 2009-12-30  Jesper K. Pedersen  <blackie@kdab.com>
 	* fixed bug #220376: Shortcuts in the annotation dialog was broken
 	in some translations
 	* bugfix: KPA crashes when viewing images if viewer cache size is set
 	to zero
+
+2009-11-25 Hassan Ibraheem <hasan.ibraheem@gmail.com>
+
+	* fixed bug #211907: Fix EXIF support dialog at startup. Thanks to Olivier Berger
+
+2009-11-19 Hassan Ibraheem <hasan.ibraheem@gmail.com>
+
+	* fixed bug #147891: Crashing on wrong export directory in Plugin interface
 
 2009-11-08  Hassan Ibraheem <hasan.ibraheem@gmail.com>
 
