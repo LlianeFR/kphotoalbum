@@ -1,7 +1,13 @@
+2009-12-30  Jesper K. Pedersen  <blackie@kdab.com>
+
+	* fixed bug #220376: Shortcuts in the annotation dialog was broken
+	in some translations
+
 2009-11-08  Hassan Ibraheem <hasan.ibraheem@gmail.com>
 
 	* fixed bug #211392: Incorrect rotation angle after annotating multiple
 	 images.Thanks to Andreas Neustifter.
+
 ====================== KPhotoalbum 4.1 released  ===================================	
 
 2009-09-02  Miika Turkia <theBro@luukku.com>
