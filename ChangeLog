@@ -2,6 +2,8 @@
 
 	* fixed bug #220376: Shortcuts in the annotation dialog was broken
 	in some translations
+	* bugfix: KPA crashes when viewing images if viewer cache size is set
+	to zero
 
 2009-11-08  Hassan Ibraheem <hasan.ibraheem@gmail.com>
 
