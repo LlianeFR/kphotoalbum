@@ -1,3 +1,8 @@
+2010-01-05  Miika Turkia <theBro@luukku.com>
+
+	* fixed bug #220373: Viewer settings dialog did not load correct
+	values and had wrong defaults
+
 2009-12-30  Jesper K. Pedersen  <blackie@kdab.com>
 	* fixed bug #220376: Shortcuts in the annotation dialog was broken
 	in some translations
