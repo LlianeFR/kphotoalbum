@@ -1,3 +1,7 @@
+2010-01-06  Miika Turkia <theBro@luukku.com>
+
+	* Remove of some code that became dead with yesterdays bugfix
+
 2010-01-05  Miika Turkia <theBro@luukku.com>
 
 	* fixed bug #220373: Viewer settings dialog did not load correct
