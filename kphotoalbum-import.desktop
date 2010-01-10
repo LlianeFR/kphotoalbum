@@ -1,6 +1,7 @@
 [Desktop Entry]
 Name=KPhotoAlbum
 Name[ca]=KPhotoAlbum
+Name[ca@valencia]=KPhotoAlbum
 Name[cs]=KPhotoAlbum
 Name[da]=KPhotoAlbum
 Name[de]=KPhotoAlbum
@@ -21,6 +22,7 @@ Name[zh_TW]=KPhotoAlbum
 Exec=kphotoalbum --import %u
 GenericName=Photo Album
 GenericName[ca]=Àlbum de fotos
+GenericName[ca@valencia]=Àlbum de fotos
 GenericName[cs]=Foto album
 GenericName[da]=Fotoalbum
 GenericName[de]=Fotoalbum
