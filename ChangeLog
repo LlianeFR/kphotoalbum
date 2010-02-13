@@ -1,3 +1,8 @@
+2010-02-13  Miika Turkia <theBro@luukku.com>
+
+	* Removing blue link borders from images on HTMLExport theme dark.
+	Thanks to Andreas Neustifter for patch.
+
 2010-01-06  Miika Turkia <theBro@luukku.com>
 
 	* Remove of some code that became dead with yesterdays bugfix
