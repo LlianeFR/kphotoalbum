@@ -70,6 +70,7 @@
 #include <Map/MapView.h>
 #include <QProgressBar>
 #include <QTimer>
+#include "Map/GeoCoordinates.h"
 #endif
 
 #include <algorithm>
@@ -797,7 +798,7 @@ DB::ImageSearchInfo AnnotationDialog::Dialog::search( DB::ImageSearchInfo* searc
         m_oldSearch.setMaxMegaPixel( m_max_megapixel->value() );
         m_oldSearch.setSearchRAW( m_searchRAW->isChecked() );
 #ifdef HAVE_KGEOMAP
-        const KGeoMap::GeoCoordinates::Pair regionSelection = m_annotationMap->getRegionSelection();
+        const Map::GeoCoordinates::Pair regionSelection = m_annotationMap->getRegionSelection();
         m_oldSearch.setRegionSelection(regionSelection);
 #endif
         return m_oldSearch;

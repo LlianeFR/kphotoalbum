@@ -1,4 +1,4 @@
-/* Copyright (C) 2003-2015 Jesper K. Pedersen <blackie@kde.org>
+/* Copyright (C) 2003-2018 Jesper K. Pedersen <blackie@kde.org>
 
    This program is free software; you can redistribute it and/or
    modify it under the terms of the GNU General Public
@@ -27,7 +27,7 @@
 #include <DB/ImageInfoPtr.h>
 #include <Exif/SearchInfo.h>
 #ifdef HAVE_KGEOMAP
-#include <KGeoMap/GeoCoordinates>
+#include "Map/GeoCoordinates.h"
 #endif
 #include <Utilities/StringSet.h>
 namespace DB
@@ -83,8 +83,8 @@ public:
     void addExifSearchInfo( const Exif::SearchInfo info );
 
 #ifdef HAVE_KGEOMAP
-    KGeoMap::GeoCoordinates::Pair regionSelection() const;
-    void setRegionSelection(const KGeoMap::GeoCoordinates::Pair& actRegionSelection);
+    Map::GeoCoordinates::Pair regionSelection() const;
+    void setRegionSelection(const Map::GeoCoordinates::Pair& actRegionSelection);
 #endif
 
 protected:
@@ -112,7 +112,7 @@ private:
     Exif::SearchInfo m_exifSearchInfo;
 
 #ifdef HAVE_KGEOMAP
-    KGeoMap::GeoCoordinates::Pair m_regionSelection;
+    Map::GeoCoordinates::Pair m_regionSelection;
     mutable bool m_usingRegionSelection = false;
     mutable float m_regionSelectionMinLat;
     mutable float m_regionSelectionMaxLat;

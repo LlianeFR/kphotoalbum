@@ -226,9 +226,11 @@ void Map::MapView::setLastCenter()
     m_mapWidget->setCenter(m_lastCenter.kgeomapCoordinates());
 }
 
-KGeoMap::GeoCoordinates::Pair Map::MapView::getRegionSelection() const
+Map::GeoCoordinates::Pair Map::MapView::getRegionSelection() const
 {
-    return m_mapWidget->getRegionSelection();
+    KGeoMap::GeoCoordinates::Pair kgeomapCoordinates = m_mapWidget->getRegionSelection();
+    return GeoCoordinates::makePair(kgeomapCoordinates.first.lon(), kgeomapCoordinates.first.lat(),
+                                    kgeomapCoordinates.second.lon(), kgeomapCoordinates.second.lat());
 }
 
 bool Map::MapView::regionSelected() const

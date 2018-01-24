@@ -1,4 +1,4 @@
-/* Copyright (C) 2003-2015 Jesper K. Pedersen <blackie@kde.org>
+/* Copyright (C) 2003-2018 Jesper K. Pedersen <blackie@kde.org>
 
    This program is free software; you can redistribute it and/or
    modify it under the terms of the GNU General Public
@@ -579,12 +579,12 @@ void DB::ImageSearchInfo::renameCategory( const QString& oldName, const QString&
 }
 
 #ifdef HAVE_KGEOMAP
-KGeoMap::GeoCoordinates::Pair ImageSearchInfo::regionSelection() const
+Map::GeoCoordinates::Pair ImageSearchInfo::regionSelection() const
 {
     return m_regionSelection;
 }
 
-void ImageSearchInfo::setRegionSelection(const KGeoMap::GeoCoordinates::Pair& actRegionSelection)
+void ImageSearchInfo::setRegionSelection(const Map::GeoCoordinates::Pair& actRegionSelection)
 {
     m_regionSelection = actRegionSelection;
     m_compiled = false;

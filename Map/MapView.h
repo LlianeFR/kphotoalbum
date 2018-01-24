@@ -101,7 +101,7 @@ public:
      */
     void displayStatus(MapStatus status);
 
-    KGeoMap::GeoCoordinates::Pair getRegionSelection() const;
+    GeoCoordinates::Pair getRegionSelection() const;
     bool regionSelected() const;
 
 Q_SIGNALS:
