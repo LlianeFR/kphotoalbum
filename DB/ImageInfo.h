@@ -1,4 +1,4 @@
-/* Copyright (C) 2003-2015 Jesper K. Pedersen <blackie@kde.org>
+/* Copyright (C) 2003-2018 Jesper K. Pedersen <blackie@kde.org>
 
    This program is free software; you can redistribute it and/or
    modify it under the terms of the GNU General Public
@@ -33,7 +33,7 @@
 
 #include "config-kpa-kgeomap.h"
 #ifdef HAVE_KGEOMAP
-#include <KGeoMap/GeoCoordinates>
+#include "Map/GeoCoordinates.h"
 #endif
 
 namespace Plugins
@@ -183,7 +183,7 @@ public:
      */
     QRect areaForTag(QString category, QString tag) const;
 #ifdef HAVE_KGEOMAP
-    KGeoMap::GeoCoordinates coordinates() const;
+    Map::GeoCoordinates coordinates() const;
 #endif
 
 protected:
@@ -222,7 +222,7 @@ private:
     unsigned int m_stackOrder;
     int m_videoLength;
 #ifdef HAVE_KGEOMAP
-    mutable KGeoMap::GeoCoordinates m_coordinates;
+    mutable Map::GeoCoordinates m_coordinates;
     mutable bool m_coordsIsSet = false;
 #endif
 

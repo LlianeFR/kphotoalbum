@@ -1,4 +1,4 @@
-/* Copyright (C) 2003-2010 Jesper K. Pedersen <blackie@kde.org>
+/* Copyright (C) 2003-2018 Jesper K. Pedersen <blackie@kde.org>
 
    This program is free software; you can redistribute it and/or
    modify it under the terms of the GNU General Public
@@ -29,6 +29,8 @@
 #include <DB/ImageInfo.h>
 #include <DB/MemberMap.h>
 #include <MainWindow/DirtyIndicator.h>
+
+#include "Map/GeoCoordinates.h"
 
 #define KEXIV_ORIENTATION_UNSPECIFIED   0
 #define KEXIV_ORIENTATION_NORMAL        1
@@ -117,7 +119,7 @@ QMap<QString,QVariant> Plugins::ImageInfo::attributes()
     //res.insert(QString::fromLatin1("picklabel"), xxx );
 
 #ifdef HAVE_KGEOMAP
-    KGeoMap::GeoCoordinates position = m_info->coordinates();
+    Map::GeoCoordinates position = m_info->coordinates();
     if (position.hasCoordinates()) {
         res.insert(QString::fromLatin1("longitude"), QVariant(position.lon()));
         res.insert(QString::fromLatin1("latitude"), QVariant(position.lat()));
