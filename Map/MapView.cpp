@@ -33,6 +33,7 @@
 
 // Libkgeomap includes
 #include <KGeoMap/MapWidget>
+#include <KGeoMap/GeoCoordinates>
 
 // Local includes
 #include "MapMarkerModelHelper.h"
@@ -132,13 +133,13 @@ void Map::MapView::zoomToMarkers()
 void Map::MapView::setCenter(const DB::ImageInfo& image)
 {
     m_lastCenter = image.coordinates();
-    m_mapWidget->setCenter(m_lastCenter.kgeomapCoordinates());
+    m_mapWidget->setCenter(KGeoMap::GeoCoordinates(m_lastCenter.lat(), m_lastCenter.lon()));
 }
 
 void Map::MapView::setCenter(const DB::ImageInfoPtr image)
 {
     m_lastCenter = image->coordinates();
-    m_mapWidget->setCenter(m_lastCenter.kgeomapCoordinates());
+    m_mapWidget->setCenter(KGeoMap::GeoCoordinates(m_lastCenter.lat(), m_lastCenter.lon()));
 }
 
 void Map::MapView::saveSettings()
@@ -223,7 +224,7 @@ void Map::MapView::displayStatus(MapStatus status)
 
 void Map::MapView::setLastCenter()
 {
-    m_mapWidget->setCenter(m_lastCenter.kgeomapCoordinates());
+    m_mapWidget->setCenter(KGeoMap::GeoCoordinates(m_lastCenter.lat(), m_lastCenter.lon()));
 }
 
 Map::GeoCoordinates::Pair Map::MapView::getRegionSelection() const

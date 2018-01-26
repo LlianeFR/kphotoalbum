@@ -27,6 +27,9 @@
 // Local includes
 #include <ImageManager/ThumbnailCache.h>
 
+// libkgeomap includes
+#include <KGeoMap/GeoCoordinates>
+
 const int FileNameRole = Qt::UserRole + 1;
 
 Map::MapMarkerModelHelper::MapMarkerModelHelper() : m_itemModel(0), m_itemSelectionModel(0)
@@ -77,7 +80,8 @@ bool Map::MapMarkerModelHelper::itemCoordinates(const QModelIndex& index,
 
     if (coordinates) {
         const DB::FileName filename = index.data(FileNameRole).value<DB::FileName>();
-        *coordinates = filename.info()->coordinates().kgeomapCoordinates();
+        *coordinates = KGeoMap::GeoCoordinates(filename.info()->coordinates().lat(),
+                                               filename.info()->coordinates().lon());
     }
 
     return true;
