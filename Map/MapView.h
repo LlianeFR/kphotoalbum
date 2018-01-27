@@ -19,21 +19,17 @@
 #ifndef MAPVIEW_H
 #define MAPVIEW_H
 
+// Local includes
+#include "GeoCoordinates.h"
+#include "DB/ImageInfo.h"
+#include "DB/ImageInfoPtr.h"
+
 // Qt includes
 #include <QWidget>
-
-// Local includes
-#include <DB/ImageInfo.h>
-#include <DB/ImageInfoPtr.h>
-#include "GeoCoordinates.h"
 
 // Qt classes
 class QLabel;
 class QPushButton;
-
-namespace KGeoMap {
-class MapWidget;
-}
 
 namespace Map
 {
@@ -66,7 +62,7 @@ public:
         SearchCoordinates
     };
 
-    explicit MapView( QWidget* parent = 0, UsageType type = InlineMapView);
+    explicit MapView(QWidget *parent = 0, UsageType type = InlineMapView);
     ~MapView();
 
     /**
@@ -77,7 +73,7 @@ public:
     /**
      * Add an image to the map.
      */
-    void addImage(const DB::ImageInfo& image);
+    void addImage(const DB::ImageInfo &image);
     void addImage(const DB::ImageInfoPtr image);
 
     /**
@@ -108,7 +104,7 @@ public slots:
     /**
      * Centers the map on the coordinates of the given image.
      */
-    void setCenter(const DB::ImageInfo& image);
+    void setCenter(const DB::ImageInfo &image);
     void setCenter(const DB::ImageInfoPtr image);
 
 private slots:
@@ -116,9 +112,9 @@ private slots:
     void setLastCenter();
 
 private: // Variables
-    KGeoMap::MapWidget* m_mapWidget;
-    QLabel* m_statusLabel;
-    QPushButton* m_setLastCenterButton;
+    QWidget *m_mapWidget;
+    QLabel *m_statusLabel;
+    QPushButton *m_setLastCenterButton;
     GeoCoordinates m_lastCenter;
 
 };
