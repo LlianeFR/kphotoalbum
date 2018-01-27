@@ -1,4 +1,4 @@
-/* Copyright (C) 2003-2014 Jesper K. Pedersen <blackie@kde.org>
+/* Copyright (C) 2003-2018 Jesper K. Pedersen <blackie@kde.org>
 
    This program is free software; you can redistribute it and/or
    modify it under the terms of the GNU General Public
@@ -19,7 +19,7 @@
 #ifndef INFOBOX_H
 #define INFOBOX_H
 
-#include "config-kpa-kgeomap.h"
+#include "config-kpa-marble.h"
 
 // Qt includes
 #include <QMouseEvent>
@@ -76,7 +76,7 @@ protected:
 protected slots:
     void jumpToContext();
     void linkHovered(const QString& linkName);
-#ifdef HAVE_KGEOMAP
+#ifdef HAVE_MARBLE
     void launchMapView();
     void updateMapForCurrentImage(DB::FileName);
 #endif
@@ -93,7 +93,7 @@ private: // Variables
     InfoBoxResizer m_infoBoxResizer;
     VisibleOptionsMenu* m_menu;
     QList<QPixmap> m_ratingPixmap;
-#ifdef HAVE_KGEOMAP
+#ifdef HAVE_MARBLE
     QToolButton* m_showOnMap;
     QPointer<Map::MapView> m_map;
 #endif

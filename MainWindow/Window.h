@@ -1,4 +1,4 @@
-/* Copyright (C) 2003-2010 Jesper K. Pedersen <blackie@kde.org>
+/* Copyright (C) 2003-2018 Jesper K. Pedersen <blackie@kde.org>
 
    This program is free software; you can redistribute it and/or
    modify it under the terms of the GNU General Public
@@ -30,7 +30,7 @@
 #include <DB/FileNameList.h>
 #include <DB/ImageSearchInfo.h>
 #include <ThumbnailView/enums.h>
-#ifdef HAVE_KGEOMAP
+#ifdef HAVE_MARBLE
 #include <Browser/PositionBrowserWidget.h>
 #endif
 
@@ -84,7 +84,7 @@ public:
     void setStackHead( const DB::FileName& image );
     void setHistogramVisibilty( bool visible ) const;
     bool dbIsDirty() const;
-#ifdef HAVE_KGEOMAP
+#ifdef HAVE_MARBLE
     void showPositionBrowser();
     Browser::PositionBrowserWidget* positionBrowserWidget();
 #endif
@@ -197,7 +197,7 @@ protected:
     void checkIfMplayerIsInstalled();
     bool anyVideosSelected() const;
     void announceAndroidVersion();
-#ifdef HAVE_KGEOMAP
+#ifdef HAVE_MARBLE
     Browser::PositionBrowserWidget* createPositionBrowser();
 #endif
 
@@ -257,7 +257,7 @@ private:
     QMap<Qt::Key, QPair<QString,QString> > m_viewerInputMacros;
     MainWindow::StatusBar* m_statusBar;
     QString m_lastTarget;
-#ifdef HAVE_KGEOMAP
+#ifdef HAVE_MARBLE
     Browser::PositionBrowserWidget* m_positionBrowser;
 #endif
 };

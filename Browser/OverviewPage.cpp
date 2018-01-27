@@ -1,4 +1,4 @@
-/* Copyright (C) 2003-2016 Jesper K. Pedersen <blackie@kde.org>
+/* Copyright (C) 2003-2018 Jesper K. Pedersen <blackie@kde.org>
 
    This program is free software; you can redistribute it and/or
    modify it under the terms of the GNU General Public
@@ -24,7 +24,7 @@
 #include "ImageViewPage.h"
 
 #include <AnnotationDialog/Dialog.h>
-#ifdef HAVE_KGEOMAP
+#ifdef HAVE_MARBLE
 #include <Browser/GeoPositionPage.h>
 #endif
 #include <DB/CategoryCollection.h>
@@ -56,7 +56,7 @@ int Browser::OverviewPage::rowCount( const QModelIndex& parent ) const
         return 0;
 
     return categories().count() +
-#ifdef HAVE_KGEOMAP
+#ifdef HAVE_MARBLE
         1 +
 #endif
         4; // Exiv search + Search info + Untagged Images + Show Image
@@ -70,7 +70,7 @@ QVariant Browser::OverviewPage::data( const QModelIndex& index, int role) const
     const int row = index.row();
     if ( isCategoryIndex(row) )
         return categoryInfo( row, role );
-#ifdef HAVE_KGEOMAP
+#ifdef HAVE_MARBLE
     else if ( isGeoPositionIndex( row ) )
         return geoPositionInfo( role );
 #endif
@@ -92,7 +92,7 @@ bool Browser::OverviewPage::isCategoryIndex( int row ) const
 
 bool Browser::OverviewPage::isGeoPositionIndex( int row ) const
 {
-#ifdef HAVE_KGEOMAP
+#ifdef HAVE_MARBLE
     return row == categories().count();
 #else
     Q_UNUSED(row);
@@ -103,7 +103,7 @@ bool Browser::OverviewPage::isGeoPositionIndex( int row ) const
 bool Browser::OverviewPage::isExivIndex( int row ) const
 {
     int exivRow = categories().count();
-    #ifdef HAVE_KGEOMAP
+    #ifdef HAVE_MARBLE
         exivRow++;
     #endif
     return row == exivRow;
@@ -211,7 +211,7 @@ Browser::BrowserPage* Browser::OverviewPage::activateChild( const QModelIndex& i
 
     if ( isCategoryIndex(row) )
         return new Browser::CategoryPage( categories()[row], BrowserPage::searchInfo(), browser() );
-#ifdef HAVE_KGEOMAP
+#ifdef HAVE_MARBLE
     else if ( isGeoPositionIndex( row ) )
         return new Browser::GeoPositionPage( BrowserPage::searchInfo(), browser() );
 #endif

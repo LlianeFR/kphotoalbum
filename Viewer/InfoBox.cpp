@@ -36,7 +36,7 @@
 #include <DB/ImageDB.h>
 #include <DB/ImageInfo.h>
 #include <MainWindow/Window.h>
-#ifdef HAVE_KGEOMAP
+#ifdef HAVE_MARBLE
 #include <Map/MapView.h>
 #endif
 #include "VisibleOptionsMenu.h"
@@ -48,7 +48,7 @@ Viewer::InfoBox::InfoBox(Viewer::ViewerWidget* viewer) : QTextBrowser(viewer)
     ,m_hoveringOverLink(false)
     ,m_infoBoxResizer(this)
     ,m_menu(nullptr)
-#ifdef HAVE_KGEOMAP
+#ifdef HAVE_MARBLE
     ,m_map(nullptr)
 #endif
 {
@@ -69,7 +69,7 @@ Viewer::InfoBox::InfoBox(Viewer::ViewerWidget* viewer) : QTextBrowser(viewer)
     connect(m_jumpToContext, &QToolButton::clicked, this, &InfoBox::jumpToContext);
     connect(this, SIGNAL(highlighted(QString)), SLOT(linkHovered(QString)));
 
-#ifdef HAVE_KGEOMAP
+#ifdef HAVE_MARBLE
     m_showOnMap = new QToolButton(this);
     m_showOnMap->setIcon(QIcon::fromTheme(QString::fromUtf8("atmosphere")));
     m_showOnMap->setFixedSize(16, 16);
@@ -126,7 +126,7 @@ void Viewer::InfoBox::setInfo(const QString& text, const QMap<int, QPair<QString
 
     hackLinkColorForQt44();
 
-#ifdef HAVE_KGEOMAP
+#ifdef HAVE_MARBLE
     if (m_viewer->currentInfo()->coordinates().hasCoordinates()) {
         m_showOnMap->show();
     } else {
@@ -279,7 +279,7 @@ void Viewer::InfoBox::resizeEvent(QResizeEvent*)
 {
     QPoint pos = viewport()->rect().adjusted(0, 2, -m_jumpToContext->width() - 2, 0).topRight();
     m_jumpToContext->move(pos);
-#ifdef HAVE_KGEOMAP
+#ifdef HAVE_MARBLE
     pos.setY(pos.y() + 20);
     m_showOnMap->move(pos);
 #endif
@@ -312,7 +312,7 @@ void Viewer::InfoBox::contextMenuEvent(QContextMenuEvent* event)
     m_menu->exec(event->globalPos());
 }
 
-#ifdef HAVE_KGEOMAP
+#ifdef HAVE_MARBLE
 void Viewer::InfoBox::launchMapView()
 {
     if (! m_map) {

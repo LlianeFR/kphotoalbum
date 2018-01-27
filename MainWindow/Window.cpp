@@ -131,7 +131,7 @@ MainWindow::Window::Window( QWidget* parent )
       m_annotationDialog(nullptr),
       m_deleteDialog( nullptr ), m_htmlDialog(nullptr), m_tokenEditor( nullptr )
 {
-#ifdef HAVE_KGEOMAP
+#ifdef HAVE_MARBLE
     m_positionBrowser = 0;
 #endif
 
@@ -1957,7 +1957,7 @@ bool MainWindow::Window::dbIsDirty() const
     return m_statusBar->mp_dirtyIndicator->isSaveDirty();
 }
 
-#ifdef HAVE_KGEOMAP
+#ifdef HAVE_MARBLE
 void MainWindow::Window::showPositionBrowser()
 {
     Browser::PositionBrowserWidget *positionBrowser = positionBrowserWidget();

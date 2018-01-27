@@ -66,7 +66,7 @@
 #include <QStackedWidget>
 #include <QTimeEdit>
 #include <QVBoxLayout>
-#ifdef HAVE_KGEOMAP
+#ifdef HAVE_MARBLE
 #include <Map/MapView.h>
 #include <QProgressBar>
 #include <QTimer>
@@ -133,7 +133,7 @@ AnnotationDialog::Dialog::Dialog( QWidget* parent )
 
     connect( m_description, SIGNAL(pageUpDownPressed(QKeyEvent*)), this, SLOT(descriptionPageUpDownPressed(QKeyEvent*)) );
 
-#ifdef HAVE_KGEOMAP
+#ifdef HAVE_MARBLE
     // -------------------------------------------------- Map representation
 
     m_annotationMapContainer = new QWidget(this);
@@ -604,7 +604,7 @@ void AnnotationDialog::Dialog::load()
         m_preview->canCreateAreas(
             m_setup == InputSingleImageConfigMode && ! info.isVideo() && m_positionableCategories
         );
-#ifdef HAVE_KGEOMAP
+#ifdef HAVE_MARBLE
         updateMapForCurrentImage();
 #endif
     }
@@ -706,7 +706,7 @@ int AnnotationDialog::Dialog::configure( DB::ImageInfoList list, bool oneAtATime
         m_preview->updatePositionableCategories();
     }
 
-#ifdef HAVE_KGEOMAP
+#ifdef HAVE_MARBLE
     m_mapIsPopulated = false;
     m_annotationMap->clear();
 #endif
@@ -762,7 +762,7 @@ DB::ImageSearchInfo AnnotationDialog::Dialog::search( DB::ImageSearchInfo* searc
 {
     ShowHideSearch(true);
 
-#ifdef HAVE_KGEOMAP
+#ifdef HAVE_MARBLE
     m_mapIsPopulated = false;
     m_annotationMap->clear();
 #endif
@@ -797,7 +797,7 @@ DB::ImageSearchInfo AnnotationDialog::Dialog::search( DB::ImageSearchInfo* searc
         m_oldSearch.setMegaPixel( m_megapixel->value() );
         m_oldSearch.setMaxMegaPixel( m_max_megapixel->value() );
         m_oldSearch.setSearchRAW( m_searchRAW->isChecked() );
-#ifdef HAVE_KGEOMAP
+#ifdef HAVE_MARBLE
         const Map::GeoCoordinates::Pair regionSelection = m_annotationMap->getRegionSelection();
         m_oldSearch.setRegionSelection(regionSelection);
 #endif
@@ -1262,7 +1262,7 @@ void AnnotationDialog::Dialog::loadWindowLayout()
         // more space for preview:
         m_dockWindow->resizeDocks({m_generalDock, m_descriptionDock, m_previewDock},{200,200,800}, Qt::Horizontal);
 #endif
-#ifdef HAVE_KGEOMAP
+#ifdef HAVE_MARBLE
         // group the map with the preview
         m_dockWindow->tabifyDockWidget(m_previewDock, m_mapDock);
         // make sure the preview tab is active:
@@ -1646,7 +1646,7 @@ AnnotationDialog::ListSelect *AnnotationDialog::Dialog::listSelectForCategory(co
     return m_listSelectList.value(category,nullptr);
 }
 
-#ifdef HAVE_KGEOMAP
+#ifdef HAVE_MARBLE
 void AnnotationDialog::Dialog::updateMapForCurrentImage()
 {
     if (m_setup != InputSingleImageConfigMode) {

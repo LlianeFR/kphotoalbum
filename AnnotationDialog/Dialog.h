@@ -1,4 +1,4 @@
-/* Copyright (C) 2003-2010 Jesper K. Pedersen <blackie@kde.org>
+/* Copyright (C) 2003-2018 Jesper K. Pedersen <blackie@kde.org>
 
    This program is free software; you can redistribute it and/or
    modify it under the terms of the GNU General Public
@@ -19,7 +19,7 @@
 #ifndef ANNOTATIONDIALOG_DIALOG_H
 #define ANNOTATIONDIALOG_DIALOG_H
 
-#include "config-kpa-kgeomap.h"
+#include "config-kpa-marble.h"
 
 #include "enums.h"
 #include "ImagePreviewWidget.h"
@@ -122,7 +122,7 @@ protected slots:
     void positionableTagSelected(QString category, QString tag);
     void positionableTagDeselected(QString category, QString tag);
     void positionableTagRenamed(QString category, QString oldTag, QString newTag);
-#ifdef HAVE_KGEOMAP
+#ifdef HAVE_MARBLE
     void setCancelMapLoading();
     void annotationMapVisibilityChanged(bool visible);
     void populateMap();
@@ -219,7 +219,7 @@ private:
     bool m_positionableCategories;
     bool m_areasChanged;
 
-#ifdef HAVE_KGEOMAP
+#ifdef HAVE_MARBLE
     QDockWidget *m_mapDock;
     QWidget *m_annotationMapContainer;
     Map::MapView *m_annotationMap;

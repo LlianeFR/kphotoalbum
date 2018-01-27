@@ -18,7 +18,7 @@
 
 #ifndef IMAGESEARCHINFO_H
 #define IMAGESEARCHINFO_H
-#include <config-kpa-kgeomap.h>
+#include <config-kpa-marble.h>
 
 #include <QMap>
 #include <QList>
@@ -26,7 +26,7 @@
 #include <DB/ImageDate.h>
 #include <DB/ImageInfoPtr.h>
 #include <Exif/SearchInfo.h>
-#ifdef HAVE_KGEOMAP
+#ifdef HAVE_MARBLE
 #include "Map/GeoCoordinates.h"
 #endif
 #include <Utilities/StringSet.h>
@@ -82,7 +82,7 @@ public:
 
     void addExifSearchInfo( const Exif::SearchInfo info );
 
-#ifdef HAVE_KGEOMAP
+#ifdef HAVE_MARBLE
     Map::GeoCoordinates::Pair regionSelection() const;
     void setRegionSelection(const Map::GeoCoordinates::Pair& actRegionSelection);
 #endif
@@ -111,7 +111,7 @@ private:
 
     Exif::SearchInfo m_exifSearchInfo;
 
-#ifdef HAVE_KGEOMAP
+#ifdef HAVE_MARBLE
     Map::GeoCoordinates::Pair m_regionSelection;
     mutable bool m_usingRegionSelection = false;
     mutable float m_regionSelectionMinLat;

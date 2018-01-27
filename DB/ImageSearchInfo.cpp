@@ -175,7 +175,7 @@ bool ImageSearchInfo::match( ImageInfoPtr info ) const
         m_fnPattern.indexIn( info->fileName().relative() ) != -1 );
 
 
-#ifdef HAVE_KGEOMAP
+#ifdef HAVE_MARBLE
     // Search for GPS Position
     if (ok && m_usingRegionSelection) {
         ok = ok && info->coordinates().hasCoordinates();
@@ -336,7 +336,7 @@ ImageSearchInfo::ImageSearchInfo( const ImageSearchInfo& other )
     m_max_megapixel = other.m_max_megapixel;
     m_searchRAW = other.m_searchRAW;
     m_exifSearchInfo = other.m_exifSearchInfo;
-#ifdef HAVE_KGEOMAP
+#ifdef HAVE_MARBLE
     m_regionSelection = other.m_regionSelection;
 #endif
 
@@ -345,7 +345,7 @@ ImageSearchInfo::ImageSearchInfo( const ImageSearchInfo& other )
 void ImageSearchInfo::compile() const
 {
     m_exifSearchInfo.search();
-#ifdef HAVE_KGEOMAP
+#ifdef HAVE_MARBLE
     // Prepare Search for GPS Position
     m_usingRegionSelection = m_regionSelection.first.hasCoordinates() && m_regionSelection.second.hasCoordinates();
     if (m_usingRegionSelection) {
@@ -578,7 +578,7 @@ void DB::ImageSearchInfo::renameCategory( const QString& oldName, const QString&
     m_compiled = false;
 }
 
-#ifdef HAVE_KGEOMAP
+#ifdef HAVE_MARBLE
 Map::GeoCoordinates::Pair ImageSearchInfo::regionSelection() const
 {
     return m_regionSelection;

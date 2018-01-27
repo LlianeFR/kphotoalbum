@@ -31,8 +31,8 @@
 #include <QRect>
 #include "FileName.h"
 
-#include "config-kpa-kgeomap.h"
-#ifdef HAVE_KGEOMAP
+#include "config-kpa-marble.h"
+#ifdef HAVE_MARBLE
 #include "Map/GeoCoordinates.h"
 #endif
 
@@ -182,7 +182,7 @@ public:
      * @return the associated area, or <code>QRect()</code> if no association exists.
      */
     QRect areaForTag(QString category, QString tag) const;
-#ifdef HAVE_KGEOMAP
+#ifdef HAVE_MARBLE
     Map::GeoCoordinates coordinates() const;
 #endif
 
@@ -221,7 +221,7 @@ private:
     StackID m_stackId;
     unsigned int m_stackOrder;
     int m_videoLength;
-#ifdef HAVE_KGEOMAP
+#ifdef HAVE_MARBLE
     mutable Map::GeoCoordinates m_coordinates;
     mutable bool m_coordsIsSet = false;
 #endif

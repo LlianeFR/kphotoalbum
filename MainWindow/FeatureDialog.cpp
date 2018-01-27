@@ -17,7 +17,7 @@
 */
 
 #include <config-kpa-kipi.h>
-#include <config-kpa-kgeomap.h>
+#include <config-kpa-marble.h>
 #include "FeatureDialog.h"
 
 #include <QDialogButtonBox>
@@ -81,7 +81,7 @@ FeatureDialog::FeatureDialog( QWidget* parent )
                   "In addition the qt package for sqlite (e.g.qt-sql-sqlite) must be installed.</p>");
 
     text += i18n("<h1><a name=\"geomap\">Map view for geotagged images</a></h1>"
-                 "<p>If KPhotoAlbum has been built with support for libkgeomap, "
+                 "<p>If KPhotoAlbum has been built with support for Marble, "
                  "KPhotoAlbum can show images with GPS information on a map."
                  "</p>");
 
@@ -145,7 +145,7 @@ bool MainWindow::FeatureDialog::hasEXIV2DBSupport()
 
 bool MainWindow::FeatureDialog::hasGeoMapSupport()
 {
-#ifdef HAVE_KGEOMAP
+#ifdef HAVE_MARBLE
     return true;
 #else
     return false;
